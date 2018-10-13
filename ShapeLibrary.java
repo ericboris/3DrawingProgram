@@ -1,3 +1,9 @@
+import java.io.File;
+import java.nio.file.Paths;
+import java.nio.file.Path;
+import java.io.*;
+
+
 /**
  * used for storing and accessing shapes
  * 
@@ -8,11 +14,15 @@ public class ShapeLibrary {
     /** the collection of shapes that shape library stores */
     ArrayList<Shape> shapes;
     
+    /** a collection of the available shapes */
+    public static final ArrayList<Shape> SHAPES = new ArrayList<>();
+    
     /**
-     * create the library
+     * create the library and try to load shapes from files
      */
     public ShapeLibrary() {
         shapes = new ArrayList<Shape>();
+        fillFromFiles();
     }
     
     /**
@@ -31,5 +41,20 @@ public class ShapeLibrary {
      */
     public Shape get(int index) {
         return shapes.get(index);
+    }
+    
+    /**
+     * try to fill the shapes library with files from working path
+     */
+    public void fillFromFiles() {
+        try {
+            FileInputStream fileStream = new FileInputStream("shapes/square.shp");
+            ObjectInputStream input = new ObjectInputStream(fileStream);
+            add((Shape) input.readObject());
+        } catch (IOException i) {
+            throw new RuntimeException(i);
+        } catch (ClassNotFoundException c) {
+            throw new RuntimeException(c);
+        } 
     }
 }

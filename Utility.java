@@ -5,8 +5,6 @@ import java.io.ObjectOutputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.Path;
-import java.util.Scanner;
-import java.io.File;
 
 /**
  * Provides supporting utilities for the Drawing Application, especially in creating the initial shape library
@@ -144,7 +142,6 @@ public class Utility {
      * @param   shapeLib    the shape library from which to create the shapes
      */
     private static void writeShapes(ArrayList<Shape> shapeLib) throws FileNotFoundException, IOException {
-
         // Get the path to the current project folder, use it to create the shapes subfolder
         // This will succeed regardless of whether the folder already exists
         Path folderPath = Paths.get(System.getProperty("user.dir") + "/shapes");
@@ -168,15 +165,5 @@ public class Utility {
      */
     public static int rgbRangeLimit(int rgbValue) {
         return Math.min(255, Math.max(0, rgbValue));
-    }
-    
-    /**
-     * return a scanner object from a file
-     * 
-     * @param   file        the file to read
-     * @return              a scanner object
-     */
-    public static Scanner scanFromFile(File file) throws IOException {
-        return new Scanner(file);
     }
 }

@@ -45,9 +45,23 @@ public class Drawing {
      * @param   file        indicates what instruction file to utilize
      * @param   shapeLib    a collection of available shapes to draw
      */
-    public Drawing(ShapeLibrary shapeLib, File file) throws IOException {
+    public Drawing(ShapeLibrary shapeLib, File file) {
         this.shapeLib = shapeLib;
         this.file = file;
-        this.canvasInstr = CanvasInstruction.readFromFile(Utility.scanFromFile(file));
+        this.canvasInstr = canvasInstructionFromFile(file);
+    }
+
+    /**
+     * return a Canvas Instruction object from a file
+     * 
+     * @param   file        the file to get a CanvasInstruction from
+     * @return              a CanvasInstruction object
+     */
+    private CanvasInstruction canvasInstructionFromFile(File file) {
+        try {
+            return CanvasInstruction.readFromFile(new Scanner(file));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

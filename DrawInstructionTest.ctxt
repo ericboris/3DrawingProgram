@@ -1,0 +1,18 @@
+#BlueJ class context
+comment0.target=DrawInstructionTest
+comment0.text=\n\ The\ test\ class\ DrawInstructionTest.\n\n\ @author\ \ \ \ \ \ \ \ Bill\ Barry\n\ @version\ \ \ \ \ \ \ 2017-09-12\n
+comment1.params=
+comment1.target=DrawInstructionTest()
+comment1.text=\n\ Default\ constructor\ for\ test\ class\ DrawInstructionTest\n
+comment2.params=
+comment2.target=void\ setUp()
+comment2.text=\n\ Sets\ up\ the\ test\ fixture;\ called\ before\ every\ test\ case\ method\n
+comment3.params=
+comment3.target=void\ tearDown()
+comment3.text=\n\ Tears\ down\ the\ test\ fixture;\ called\ after\ every\ test\ case\ method\n
+comment4.params=
+comment4.target=void\ testReadMost()
+comment4.text=\n\ Tests\ the\ constructor\ and\ accessors\n
+comment5.params=
+comment5.target=void\ testReadRgbBounds()
+numComments=6

@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Drawing
+comment0.text=\n\ draw\ the\ instructions\ to\ the\ canvas\n\ \n\ @author\ \ \ \ \ \ Eric\ Boris\ \n\ @version\ \ \ \ \ 10/13/18\n
+comment1.params=shapeLib\ file
+comment1.target=Drawing(ShapeLibrary,\ java.io.File)
+comment1.text=\n\ create\ a\ drawing\ object\n\ \n\ @param\ \ \ file\ \ \ \ \ \ \ \ indicates\ what\ instruction\ file\ to\ utilize\n\ @param\ \ \ shapeLib\ \ \ \ a\ collection\ of\ available\ shapes\ to\ draw\n
+numComments=2

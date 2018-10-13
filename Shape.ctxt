@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=Shape
+comment0.text=\ \n\ Create\ a\ shape\ class\ that\ exists\ as\ a\ collection\ of\ points\n\ \n\ @author\ \ \ \ \ \ Eric\ Boris\n\ @version\ \ \ \ \ 10/12/18\n
+comment1.params=name
+comment1.target=Shape(java.lang.String)
+comment1.text=\n\ create\ a\ new\ shape\n\ \n\ @param\ \ \ name\ \ \ \ the\ name\ of\ the\ shape\n
+comment2.params=point
+comment2.target=void\ addPoint(Point)
+comment2.text=\n\ add\ a\ new\ point\ to\ the\ shape\n\ \n\ @param\ \ \ point\ \ \ the\ point\ to\ add\ to\ the\ shape\n
+comment3.params=
+comment3.target=java.lang.String\ getName()
+comment3.text=\n\ get\ the\ name\ of\ the\ shape\n
+comment4.params=
+comment4.target=ArrayList\ getPoints()
+comment4.text=\n\ get\ the\ points\ of\ the\ shape\n
+numComments=5

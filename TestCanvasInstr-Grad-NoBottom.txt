@@ -1,0 +1,1 @@
+gradStartRed=100, gradStartGreen=101, gradStartBlue=102

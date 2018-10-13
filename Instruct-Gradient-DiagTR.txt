@@ -1,0 +1,1 @@
+width=400, height=400, gradDir=3, gradStartBlue=255, gradEndBlue=0, gradStartRed=0, gradStartGreen=0, gradEndRed=255, gradEndGreen=0

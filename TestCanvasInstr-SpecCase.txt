@@ -1,0 +1,1 @@
+Width=500, HEIGHT=25, ReD=23, greeN=24, blUE=25, gRaDsTaRtReD=100, gradSTARTgreen=101, GradstarTblue=102, GRADENDRED=200, gRaDEnDGreeN=201, gradendBLUE=202

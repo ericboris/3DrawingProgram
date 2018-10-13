@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=ShapeLibrary
+comment0.text=\n\ used\ for\ storing\ and\ accessing\ shapes\n\ \n\ @author\ \ \ \ \ \ Eric\ Boris\n\ @version\ \ \ \ \ 10/12/18\n
+comment1.params=
+comment1.target=ShapeLibrary()
+comment1.text=\n\ create\ the\ library\n
+comment2.params=shape
+comment2.target=void\ add(Shape)
+comment2.text=\n\ add\ a\ shape\ to\ the\ library\n\ \n\ @param\ \ \ shape\ \ \ the\ shape\ to\ add\n
+comment3.params=index
+comment3.target=Shape\ get(int)
+comment3.text=\n\ return\ the\ a\ shape\ by\ index\n\ \n\ @param\ \ \ index\ \ \ the\ index\ of\ the\ shape\ to\ return\n
+numComments=4

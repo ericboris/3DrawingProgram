@@ -1,0 +1,1 @@
+  width = 500,height   =	25,red=23, green	=24,		blue=25, gradStartRed =100 , gradStartGreen=101	, gradStartBlue=102, 		gradEndRed = 200 , gradEndGreen=201, gradEndBlue=202   	

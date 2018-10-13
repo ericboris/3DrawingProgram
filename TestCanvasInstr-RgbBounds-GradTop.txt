@@ -1,0 +1,2 @@
+gradStartRed=-1, gradStartBlue=-1, gradStartGreen=-1, gradEndRed=200, gradEndGreen=225, gradEndBlue=250
+gradStartRed=256, gradStartBlue=256, gradStartGreen=256, gradEndRed=200, gradEndGreen=225, gradEndBlue=250

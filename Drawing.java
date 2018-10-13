@@ -46,5 +46,6 @@ public class Drawing {
     public Drawing(ShapeLibrary shapeLib, File file) {
         this.shapeLib = shapeLib;
         this.file = file;
+        this.canvasInstr = CanvasInstruction.readFromFile(file);
     }
 }

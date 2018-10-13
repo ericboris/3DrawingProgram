@@ -1,10 +1,12 @@
+import java.io.Serializable;
+
 /** 
  * Create a shape class that exists as a collection of points
  * 
  * @author      Eric Boris
  * @version     10/12/18
  */
-public class Shape {
+public class Shape implements Serializable {
     /** name the name of the shape */
     private String name;
     /** points collection of all the points that comprise a shape */

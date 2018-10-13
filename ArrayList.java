@@ -1,4 +1,5 @@
 import java.util.*;
+import java.io.Serializable;
 
 /**
  * Store a list of values of type E
@@ -7,7 +8,7 @@ import java.util.*;
  * @version 10/10/2018
  */
 
-public class ArrayList<E> {
+public class ArrayList<E> implements Serializable {
     private E[] elementData; // list of values
     private int size;        // current number of elements in the list
 

@@ -167,13 +167,4 @@ public class Utility {
     public static int rgbRangeLimit(int rgbValue) {
         return Math.min(255, Math.max(0, rgbValue));
     }
-    
-    /**
-     * Returns a created canvas instruction object initialized to default values
-     * 
-     * @return                  a canvasInstruction object with default values
-     */
-    public static CanvasInstruction getCanvasInstruction() {
-        return new CanvasInstruction(100, 100, new Color(255, 255, 255), null, null, 0);
-    }
 }

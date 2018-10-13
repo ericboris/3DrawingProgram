@@ -5,6 +5,8 @@ import java.io.ObjectOutputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.Path;
+import java.util.Scanner;
+import java.io.File;
 
 /**
  * Provides supporting utilities for the Drawing Application, especially in creating the initial shape library
@@ -166,5 +168,15 @@ public class Utility {
      */
     public static int rgbRangeLimit(int rgbValue) {
         return Math.min(255, Math.max(0, rgbValue));
+    }
+    
+    /**
+     * return a scanner object from a file
+     * 
+     * @param   file        the file to read
+     * @return              a scanner object
+     */
+    public static Scanner scanFromFile(File file) throws IOException {
+        return new Scanner(file);
     }
 }

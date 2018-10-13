@@ -25,6 +25,8 @@
  * accomplish these tasks.
  */
 import java.io.File;
+import java.util.Scanner;
+import java.io.IOException;
 
 /**
  * draw the instructions to the canvas
@@ -43,9 +45,9 @@ public class Drawing {
      * @param   file        indicates what instruction file to utilize
      * @param   shapeLib    a collection of available shapes to draw
      */
-    public Drawing(ShapeLibrary shapeLib, File file) {
+    public Drawing(ShapeLibrary shapeLib, File file) throws IOException {
         this.shapeLib = shapeLib;
         this.file = file;
-        this.canvasInstr = CanvasInstruction.readFromFile(file);
+        this.canvasInstr = CanvasInstruction.readFromFile(Utility.scanFromFile(file));
     }
 }

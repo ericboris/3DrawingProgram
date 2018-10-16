@@ -22,7 +22,7 @@ public class ShapeLibrary {
      */
     public ShapeLibrary() {
         shapes = new ArrayList<Shape>();
-        fillFromFiles();
+        fillFromFile();
     }
     
     /**
@@ -46,11 +46,19 @@ public class ShapeLibrary {
     /**
      * try to fill the shapes library with files from working path
      */
-    public void fillFromFiles() {
+    public void fillFromFile() {
         try {
-            FileInputStream fileStream = new FileInputStream("shapes/square.shp");
-            ObjectInputStream input = new ObjectInputStream(fileStream);
-            add((Shape) input.readObject());
+            String path = System.getProperty("user.dir") + "/shapes";
+            File folder = new File(path);
+            File[] files = folder.listFiles();
+            for (File file : files) {
+                String fileName = file.getPath();
+                if (fileName.endsWith(".shp")) {
+                    FileInputStream fileStream = new FileInputStream(fileName);
+                    ObjectInputStream input = new ObjectInputStream(fileStream);
+                    add((Shape) input.readObject());
+                }
+            }
         } catch (IOException i) {
             throw new RuntimeException(i);
         } catch (ClassNotFoundException c) {

@@ -11,6 +11,6 @@ comment3.params=index
 comment3.target=Shape\ get(int)
 comment3.text=\n\ return\ the\ a\ shape\ by\ index\n\ \n\ @param\ \ \ index\ \ \ the\ index\ of\ the\ shape\ to\ return\n
 comment4.params=
-comment4.target=void\ fillFromFiles()
+comment4.target=void\ fillFromFile()
 comment4.text=\n\ try\ to\ fill\ the\ shapes\ library\ with\ files\ from\ working\ path\n
 numComments=5

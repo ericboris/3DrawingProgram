@@ -26,7 +26,8 @@
  */
 import java.io.File;
 import java.util.Scanner;
-import java.io.IOException;
+//import java.io.IOException;
+import java.io.FileNotFoundException;
 
 /**
  * draw the instructions to the canvas
@@ -38,6 +39,7 @@ public class Drawing {
     private ShapeLibrary shapeLib;
     private File file;
     private CanvasInstruction canvasInstr;
+    private ArrayList<DrawInstruction> drawInstrs;
     
     /**
      * create a drawing object
@@ -48,20 +50,36 @@ public class Drawing {
     public Drawing(ShapeLibrary shapeLib, File file) {
         this.shapeLib = shapeLib;
         this.file = file;
-        this.canvasInstr = canvasInstructionFromFile(file);
-    }
-
-    /**
-     * return a Canvas Instruction object from a file
-     * 
-     * @param   file        the file to get a CanvasInstruction from
-     * @return              a CanvasInstruction object
-     */
-    private CanvasInstruction canvasInstructionFromFile(File file) {
+        
+        // get a new scanner object from the provided file
+        Scanner fileScan;
         try {
-            return CanvasInstruction.readFromFile(new Scanner(file));
-        } catch (IOException e) {
+            fileScan = new Scanner(file);
+        } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
-    }
+        
+        // get the canvas instructions
+        this.canvasInstr = CanvasInstruction.readFromFile(fileScan);
+        
+        // get all the draw instructions
+        drawInstrs = new ArrayList<DrawInstruction>();
+        while (fileScan.hasNext()) {
+            this.drawInstrs.add(DrawInstruction.readFromFile(fileScan));
+        }      
+    }    
+
+    // /**
+     // * return a Canvas Instruction object from a file
+     // * 
+     // * @param   file        the file to get a CanvasInstruction from
+     // * @return              a CanvasInstruction object
+     // */
+    // private Scanner newScanner(File file) {
+        // try {
+            // return new Scanner(file);
+        // } catch (IOException e) {
+            // throw new RuntimeException(e);
+        // }
+    // }
 }

@@ -1,12 +1,4 @@
 /*
- * It should then use the appropriate Utility static methods
- * to ask for the retrieval of one CanvasInstruction, and create
- * a loop to ask for the retrieval of as many DrawInstruction 
- * objects as there are drawing instruction lines in the file.
- * You may decide to do the latter by saving all the drawing
- * instructions into an ArrayList, for later processing, or by
- * reading each drawing instruction and processing it immediately.
- * 
  * You must then do the work of drawing.  In some cases that will 
  * involved some transforms on the data, e.g., if the instruction
  * file says to draw the shape at (250, 100), then you must make
@@ -26,7 +18,6 @@
  */
 import java.io.File;
 import java.util.Scanner;
-//import java.io.IOException;
 import java.io.FileNotFoundException;
 
 /**
@@ -68,18 +59,4 @@ public class Drawing {
             this.drawInstrs.add(DrawInstruction.readFromFile(fileScan));
         }      
     }    
-
-    // /**
-     // * return a Canvas Instruction object from a file
-     // * 
-     // * @param   file        the file to get a CanvasInstruction from
-     // * @return              a CanvasInstruction object
-     // */
-    // private Scanner newScanner(File file) {
-        // try {
-            // return new Scanner(file);
-        // } catch (IOException e) {
-            // throw new RuntimeException(e);
-        // }
-    // }
 }

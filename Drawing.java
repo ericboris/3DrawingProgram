@@ -58,5 +58,16 @@ public class Drawing {
         while (fileScan.hasNext()) {
             this.drawInstrs.add(DrawInstruction.readFromFile(fileScan));
         }      
-    }    
+    }
+    
+    /**
+     *  create a drawing based on canvas instructions and draw instructions
+     */
+    public void draw() {
+        // create a new canvas
+        DrawingPanel dPanel = new DrawingPanel();
+        dPanel.setWidth(canvasInstr.getWidth());
+        dPanel.setHeight(canvasInstr.getHeight());
+        dPanel.setBackground(canvasInstr.getColorSolid());
+    }
 }

@@ -35,12 +35,32 @@ public class ShapeLibrary {
     }
     
     /**
-     * return the a shape by index
+     * return a shape by index
      * 
      * @param   index   the index of the shape to return
+     * @return          the shape to be returned
      */
     public Shape get(int index) {
         return shapes.get(index);
+    }
+    
+    /** 
+     * return a shape by shape name
+     * 
+     * @param   name    the name of shape to return
+     * @return          the shape to be returned
+     */
+    public Shape get(String shapeName) {
+        Shape shape = null;
+        
+        for (Shape sp : shapes) {
+            if (shapeName.equals(sp.getName())) {
+                shape = sp;
+                break;
+            } 
+        }
+        
+        return shape;
     }
     
     /**

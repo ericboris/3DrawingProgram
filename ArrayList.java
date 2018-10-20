@@ -8,7 +8,7 @@ import java.io.Serializable;
  * @version 10/10/2018
  */
 
-public class ArrayList<E> implements Serializable {
+public class ArrayList<E> implements Serializable, Iterable<E> {
     private E[] elementData; // list of values
     private int size;        // current number of elements in the list
 

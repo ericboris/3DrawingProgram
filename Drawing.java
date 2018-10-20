@@ -19,6 +19,9 @@
 import java.io.File;
 import java.util.Scanner;
 import java.io.FileNotFoundException;
+import java.awt.Graphics;
+import java.awt.Color;
+import java.util.Random;
 
 /**
  * draw the instructions to the canvas
@@ -64,10 +67,68 @@ public class Drawing {
      *  create a drawing based on canvas instructions and draw instructions
      */
     public void draw() {
-        // create a new canvas
-        DrawingPanel dPanel = new DrawingPanel();
-        dPanel.setWidth(canvasInstr.getWidth());
-        dPanel.setHeight(canvasInstr.getHeight());
-        dPanel.setBackground(canvasInstr.getColorSolid());
+        // create, size, and colore new canvas
+        DrawingPanel dp = new DrawingPanel();
+        dp.setWidth(canvasInstr.getWidth());
+        dp.setHeight(canvasInstr.getHeight());
+        dp.setBackground(canvasInstr.getColorSolid());
+        
+        Graphics dpg = dp.getGraphics();
+        
+        for (DrawInstruction instr : drawInstrs) {
+            // get information about the shape
+            Shape shape = shapeLib.get(instr.getShapeName());
+            ArrayList<Point> points = shape.getPoints();
+            dpg.setColor(instr.getColor());
+            
+            // draw each shape as many times as it is repeated
+            for (int rep = 0; rep < instr.getRepeats(); rep++) {
+                // create arrays to store the x and y points
+                int[] x = new int[points.size()];
+                int[] y = new int[points.size()];
+                
+                // set the global adjustments on all the x pixel values
+                int xStart = 0;
+                int xOff = 0;
+                // randomize the x location or use the provided one
+                if (instr.getStartingX() == Integer.MIN_VALUE) {
+                    xStart = new Random().nextInt(canvasInstr.getWidth());
+                } else {
+                    // set the pixel start for x apoints
+                    xStart =  instr.getStartingX();
+                    // set the offset amount in pixels for repeated shapes
+                    xOff = rep * instr.getRepeatOffsetX();;
+                }
+                
+                // repeat the above for y
+                // kept seperate in case x is random and y is not, and vice versa
+                int yStart = 0;
+                int yOff = 0;
+                if (instr.getStartingY() == Integer.MIN_VALUE) {
+                    yStart = new Random().nextInt(canvasInstr.getHeight());
+                } else {
+                    yStart = instr.getStartingY();
+                    yOff = rep * instr.getRepeatOffsetY();
+                }
+                
+                // iterate over the each point in the shape and its x and y
+                // locations to their respective array at location index               
+                int index = 0;
+                for (Point p : points) {
+                    x[index] = ((int) Math.round(p.getX())) + xStart + xOff;
+                    y[index] = ((int) Math.round(p.getY())) + yStart + yOff;
+                    index++;
+                }
+                
+                // draw the shape
+                // either filled or line only
+                if (instr.getFilled()) {
+                    dpg.fillPolygon(x, y, points.size());
+                } else {
+                    dpg.drawPolygon(x, y, points.size());
+                }
+            }
+        }
+        
     }
 }

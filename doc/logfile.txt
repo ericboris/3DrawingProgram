@@ -1,6 +1,6 @@
 Class documentation
 <---- javadoc command: ---->
-/private/var/folders/r_/0n868rvs4xs8vy7r89t84w5m0000gn/T/AppTranslocation/BDAF1438-96D9-4303-B1A0-2F370730C4FF/d/BlueJ.app/Contents/JDK/Home/bin/javadoc
+/private/var/folders/r_/0n868rvs4xs8vy7r89t84w5m0000gn/T/AppTranslocation/3D1E78CA-6579-4052-AD6D-9D2009CE6356/d/BlueJ.app/Contents/JDK/Home/bin/javadoc
 -author
 -version
 -nodeprecated
@@ -13,20 +13,20 @@ Class documentation
 -source
 1.8
 -classpath
-/private/var/folders/r_/0n868rvs4xs8vy7r89t84w5m0000gn/T/AppTranslocation/BDAF1438-96D9-4303-B1A0-2F370730C4FF/d/BlueJ.app/Contents/Resources/Java/bluejcore.jar:/private/var/folders/r_/0n868rvs4xs8vy7r89t84w5m0000gn/T/AppTranslocation/BDAF1438-96D9-4303-B1A0-2F370730C4FF/d/BlueJ.app/Contents/Resources/Java/junit-4.11.jar:/private/var/folders/r_/0n868rvs4xs8vy7r89t84w5m0000gn/T/AppTranslocation/BDAF1438-96D9-4303-B1A0-2F370730C4FF/d/BlueJ.app/Contents/Resources/Java/hamcrest-core-1.3.jar:/private/var/folders/r_/0n868rvs4xs8vy7r89t84w5m0000gn/T/AppTranslocation/BDAF1438-96D9-4303-B1A0-2F370730C4FF/d/BlueJ.app/Contents/Resources/Java/lang-stride.jar:/private/var/folders/r_/0n868rvs4xs8vy7r89t84w5m0000gn/T/AppTranslocation/BDAF1438-96D9-4303-B1A0-2F370730C4FF/d/BlueJ.app/Contents/Resources/Java/userlib/pi4j-core.jar:/private/var/folders/r_/0n868rvs4xs8vy7r89t84w5m0000gn/T/AppTranslocation/BDAF1438-96D9-4303-B1A0-2F370730C4FF/d/BlueJ.app/Contents/Resources/Java/userlib/pi4j-gpio-extension.jar:/private/var/folders/r_/0n868rvs4xs8vy7r89t84w5m0000gn/T/AppTranslocation/BDAF1438-96D9-4303-B1A0-2F370730C4FF/d/BlueJ.app/Contents/Resources/Java/userlib/pi4j-service.jar:/private/var/folders/r_/0n868rvs4xs8vy7r89t84w5m0000gn/T/AppTranslocation/BDAF1438-96D9-4303-B1A0-2F370730C4FF/d/BlueJ.app/Contents/Resources/Java/userlib/pi4j-device.jar:/Users/ericboris/Documents/School/Programming/143/3DrawingProgram
+/private/var/folders/r_/0n868rvs4xs8vy7r89t84w5m0000gn/T/AppTranslocation/3D1E78CA-6579-4052-AD6D-9D2009CE6356/d/BlueJ.app/Contents/Resources/Java/bluejcore.jar:/private/var/folders/r_/0n868rvs4xs8vy7r89t84w5m0000gn/T/AppTranslocation/3D1E78CA-6579-4052-AD6D-9D2009CE6356/d/BlueJ.app/Contents/Resources/Java/junit-4.11.jar:/private/var/folders/r_/0n868rvs4xs8vy7r89t84w5m0000gn/T/AppTranslocation/3D1E78CA-6579-4052-AD6D-9D2009CE6356/d/BlueJ.app/Contents/Resources/Java/hamcrest-core-1.3.jar:/private/var/folders/r_/0n868rvs4xs8vy7r89t84w5m0000gn/T/AppTranslocation/3D1E78CA-6579-4052-AD6D-9D2009CE6356/d/BlueJ.app/Contents/Resources/Java/lang-stride.jar:/private/var/folders/r_/0n868rvs4xs8vy7r89t84w5m0000gn/T/AppTranslocation/3D1E78CA-6579-4052-AD6D-9D2009CE6356/d/BlueJ.app/Contents/Resources/Java/userlib/pi4j-core.jar:/private/var/folders/r_/0n868rvs4xs8vy7r89t84w5m0000gn/T/AppTranslocation/3D1E78CA-6579-4052-AD6D-9D2009CE6356/d/BlueJ.app/Contents/Resources/Java/userlib/pi4j-gpio-extension.jar:/private/var/folders/r_/0n868rvs4xs8vy7r89t84w5m0000gn/T/AppTranslocation/3D1E78CA-6579-4052-AD6D-9D2009CE6356/d/BlueJ.app/Contents/Resources/Java/userlib/pi4j-service.jar:/private/var/folders/r_/0n868rvs4xs8vy7r89t84w5m0000gn/T/AppTranslocation/3D1E78CA-6579-4052-AD6D-9D2009CE6356/d/BlueJ.app/Contents/Resources/Java/userlib/pi4j-device.jar:/Users/ericboris/Documents/School/Programming/143/3DrawingProgram
 -d
 /Users/ericboris/Documents/School/Programming/143/3DrawingProgram/doc
 -encoding
 UTF-8
 -charset
 UTF-8
-/Users/ericboris/Documents/School/Programming/143/3DrawingProgram/Shape.java
+/Users/ericboris/Documents/School/Programming/143/3DrawingProgram/DrawInstruction.java
 <---- end of javadoc command ---->
-Loading source file /Users/ericboris/Documents/School/Programming/143/3DrawingProgram/Shape.java...
+Loading source file /Users/ericboris/Documents/School/Programming/143/3DrawingProgram/DrawInstruction.java...
 Constructing Javadoc information...
 Standard Doclet version 1.8.0_181
 Building tree for all the packages and classes...
-Generating /Users/ericboris/Documents/School/Programming/143/3DrawingProgram/doc/Shape.html...
+Generating /Users/ericboris/Documents/School/Programming/143/3DrawingProgram/doc/DrawInstruction.html...
 Generating /Users/ericboris/Documents/School/Programming/143/3DrawingProgram/doc/package-frame.html...
 Generating /Users/ericboris/Documents/School/Programming/143/3DrawingProgram/doc/package-summary.html...
 Generating /Users/ericboris/Documents/School/Programming/143/3DrawingProgram/doc/constant-values.html...

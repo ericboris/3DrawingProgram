@@ -14,14 +14,14 @@ public class Main {
         Drawing drawing8 = new Drawing(shapeLib, new File("Instruct-Gradient-DiagTL.txt"));
         Drawing drawing9 = new Drawing(shapeLib, new File("Instruct-Gradient-DiagTR.txt"));
         
-        // drawing9.draw();
-        // drawing8.draw();
-        // drawing7.draw();
-        // drawing6.draw();
-        // drawing5.draw();
-        // drawing4.draw();
-        // drawing3.draw();
-        // drawing2.draw();
-        // drawing1.draw();
+        drawing9.draw();
+        drawing8.draw();
+        drawing7.draw();
+        drawing6.draw();
+        drawing5.draw();
+        drawing4.draw();
+        drawing3.draw();
+        drawing2.draw();
+        drawing1.draw();
     }    
 }

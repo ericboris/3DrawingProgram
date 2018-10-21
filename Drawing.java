@@ -61,9 +61,7 @@ public class Drawing {
 
         // perform each of the drawing instructions        
         for (DrawInstruction instr : drawInstrs) {
-            // get information about the shape
-            Shape shape = shapeLib.get(instr.getShapeName());
-            ArrayList<Point> points = shape.getPoints();
+            ArrayList<Point> points = shapeLib.get(instr.getShapeName()).getPoints();
             dpg.setColor(instr.getColor());
 
             // draw each shape as many times as it is repeated
@@ -71,27 +69,24 @@ public class Drawing {
                 // create arrays to store the x and y points
                 int[] x = new int[points.size()];
                 int[] y = new int[points.size()];
-                
-                // get the amount that point will be shifted by
-                int xShift = getShift(instr.getStartingX(), canvasInstr.getWidth(), 
-                        rep, instr.getRepeatOffsetX());
-                int yShift = getShift(instr.getStartingY(), canvasInstr.getHeight(), 
-                        rep, instr.getRepeatOffsetY());
-                        
-                // get the center point of the shape
-                double cX = shape.getCenter().getX();
-                double cY = shape.getCenter().getY();
+
+                // the amount to translate the x and y points by
+                int xTran = getTran(instr.getStartingX(), canvasInstr.getWidth(), 
+                        rep * instr.getRepeatOffsetX());
+                int yTran = getTran(instr.getStartingY(), canvasInstr.getHeight(), 
+                        rep * instr.getRepeatOffsetY());
 
                 // iterate over the each point in the shape and its x and y
                 // locations to their respective array at location index               
                 int index = 0;
                 for (Point p : points) {
-                    // apply scaling and transformation
-                    double sp = instr.getScalePercent();
-                    double pX = ((p.getX() - cX) * sp / 100 + cX) + xShift;
-                    double pY = ((p.getY() - cY) * sp / 100 + cY) + yShift;
+                    // get the x and y start values of the points
+                    // multiply by the scale percentage
+                    // add the shift transformation
+                    double pX = (p.getX() * instr.getScalePercent() / 100) + xTran;
+                    double pY = (p.getY() * instr.getScalePercent() / 100) + yTran;
 
-                    // store the modified point in the array of points
+                    // store the transformed point in the array of points
                     // and update the index
                     x[index] = ((int) Math.round(pX));
                     y[index] = ((int) Math.round(pY));
@@ -109,19 +104,22 @@ public class Drawing {
         }
     }
 
-    private int getShift(int initStart, int maxSize, int initRepeat, int initOffset) {
-        // set the global adjustments on all the x pixel values
-        int start = 0;
-        int offset = 0;
-        // randomize the x location or use the provided one
-        if (initStart == Integer.MIN_VALUE) {
-            start = new Random().nextInt(maxSize);
+    /**
+     * get the amount to translate the point by in a dimension (x or y)
+     * 
+     * @param   loc     the starting location of the point
+     * @param   max     the maximum canvas size
+     * @param   offset  the amount to offset the translation by, for repeated points
+     * 
+     * @return          the amount to translate a given point by
+     */
+    private int getTran(int loc, int max, int offset) {
+        int trans = 0;
+        if (loc == Integer.MIN_VALUE) {
+            trans = new Random().nextInt(max);
         } else {
-            // set the pixel start for x apoints
-            start =  initStart;
-            // set the offset amount in pixels for repeated shapes
-            offset = initRepeat * initOffset;
+            trans =  loc + offset;
         }
-        return start + offset;
+        return trans;
     }
 }

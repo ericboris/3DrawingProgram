@@ -44,21 +44,4 @@ public class Shape implements Serializable {
     public ArrayList getPoints() {
         return points;
     }
-    
-    /**
-     * get the center of the shape
-     * 
-     * @return          the center point
-     */
-    public Point getCenter() {
-        double cX = 0;
-        double cY = 0;
-        for (Point p : points) {
-            cX = cX + p.getX();
-            cY = cY + p.getY();
-        }
-        cX = cX / points.size();
-        cY = cY / points.size();
-        return new Point(cX, cY);
-    }
 }

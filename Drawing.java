@@ -1,4 +1,3 @@
-
 import java.io.File;
 import java.util.Scanner;
 import java.io.FileNotFoundException;
@@ -67,10 +66,9 @@ public class Drawing {
             // draw each shape as many times as it is repeated
             for (int rep = 0; rep < instr.getRepeats(); rep++) {
                 // create arrays to store the x and y points
-                int[] x = new int[points.size()];
-                int[] y = new int[points.size()];
+                int[][] pts = new int[2][points.size()];
 
-                // the amount to translate the x and y points by
+                // the amount to translate the x and y points
                 int xTran = getTran(instr.getStartingX(), canvasInstr.getWidth(), 
                         rep * instr.getRepeatOffsetX());
                 int yTran = getTran(instr.getStartingY(), canvasInstr.getHeight(), 
@@ -78,27 +76,26 @@ public class Drawing {
 
                 // iterate over the each point in the shape and its x and y
                 // locations to their respective array at location index               
-                int index = 0;
-                for (Point p : points) {
-                    // get the x and y start values of the points
-                    // multiply by the scale percentage
-                    // add the shift transformation
-                    double pX = (p.getX() * instr.getScalePercent() / 100) + xTran;
-                    double pY = (p.getY() * instr.getScalePercent() / 100) + yTran;
-
-                    // store the transformed point in the array of points
-                    // and update the index
-                    x[index] = ((int) Math.round(pX));
-                    y[index] = ((int) Math.round(pY));
-                    index++;
+                for (int idx = 0; idx < points.size(); idx++) {
+                    // for the x and y values of each point in the sahpe
+                    // scale and translate
+                    // and round the result
+                    pts[0][idx] = ((int) Math.round(
+                                    points.get(idx).getX() * 
+                                    instr.getScalePercent() / 100) + 
+                                    xTran);
+                    pts[1][idx] = ((int) Math.round(
+                                    points.get(idx).getY() * 
+                                    instr.getScalePercent() / 100) +
+                                    yTran);
                 }
 
                 // draw the shape
                 // either filled or line only
                 if (instr.getFilled()) {
-                    dpg.fillPolygon(x, y, points.size());
+                    dpg.fillPolygon(pts[0], pts[1], points.size());
                 } else {
-                    dpg.drawPolygon(x, y, points.size());
+                    dpg.drawPolygon(pts[0], pts[1], points.size());
                 }
             }
         }

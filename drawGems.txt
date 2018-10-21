@@ -1,0 +1,6 @@
+width=500, height=500, red=255, blue=22, green=162
+shape=gem, x=0, y=0, filled=true, red=17, blue=219, green=195, repOffX=100, repOffY=0, rep=5
+shape=gem, x=0, y=100, filled=true, red=17, blue=219, green=195, repOffX=100, repOffY=0, rep=5
+shape=gem, x=0, y=200, filled=true, red=17, blue=219, green=195, repOffX=100, repOffY=0, rep=5
+shape=gem, x=0, y=300, filled=true, red=17, blue=219, green=195, repOffX=100, repOffY=0, rep=5
+shape=gem, x=0, y=400, filled=true, red=17, blue=219, green=195, repOffX=100, repOffY=0, rep=5

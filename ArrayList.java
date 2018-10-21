@@ -12,7 +12,7 @@ public class ArrayList<E> implements Serializable, Iterable<E> {
     private E[] elementData; // list of values
     private int size;        // current number of elements in the list
 
-    public static final int DEFAULT_CAPACITY = 100;
+    public static final int DEFAULT_CAPACITY = 50;
 
     // post: constructs an empty list of default capacity
     public ArrayList() {
@@ -143,7 +143,7 @@ public class ArrayList<E> implements Serializable, Iterable<E> {
     //       the size is doubled (or more if given capacity is even larger)
     public void ensureCapacity(int capacity) {
         if (capacity > elementData.length) {
-            int newCapacity = elementData.length * 2 + 1;
+            int newCapacity = ((int) Math.round(elementData.length * 1.5)) + 1;
             if (capacity > newCapacity) {
                 newCapacity = capacity;
             }

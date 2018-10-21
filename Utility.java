@@ -29,6 +29,8 @@ public class Utility {
         addShapeStar(shapeLib);
         addShapeCircle(shapeLib);
         addShapeHeart(shapeLib);
+        addShapeGem(shapeLib);
+        addShapeSpiral(shapeLib);
         writeShapes(shapeLib);
     }
     
@@ -135,7 +137,87 @@ public class Utility {
         heart.addPoint(new Point(100.0,  25.0));
         shapeLib.add(heart);
     }
-
+    
+    private static void addShapeGem(ArrayList<Shape> shapeLib) {
+        Shape gem = new Shape ("gem");
+        
+        gem.addPoint(new Point(  0.0,   50.0));
+        gem.addPoint(new Point( 40.0,   40.0));
+        gem.addPoint(new Point( 20.0,   30.0));
+        gem.addPoint(new Point( 10.0,   10.0));
+        gem.addPoint(new Point(  0.0,   50.0));
+        gem.addPoint(new Point(  0.0,    0.0));
+        gem.addPoint(new Point( 50.0,    0.0));
+        gem.addPoint(new Point( 10.0,   10.0));
+        gem.addPoint(new Point( 30.0,   20.0));
+        gem.addPoint(new Point( 40.0,   40.0));
+        gem.addPoint(new Point( 50.0,    0.0));
+        
+        gem.addPoint(new Point( 60.0,   40.0));
+        gem.addPoint(new Point( 70.0,   20.0));
+        gem.addPoint(new Point( 90.0,   10.0));
+        gem.addPoint(new Point( 50.0,   0.0));
+        gem.addPoint(new Point(100.0,    0.0));
+        gem.addPoint(new Point(100.0,   50.0));
+        gem.addPoint(new Point( 90.0,   10.0));
+        gem.addPoint(new Point( 80.0,   30.0));
+        gem.addPoint(new Point( 60.0,   40.0));
+        gem.addPoint(new Point(100.0,   50.0));
+        
+        gem.addPoint(new Point( 60.0,   60.0));
+        gem.addPoint(new Point( 80.0,   70.0));
+        gem.addPoint(new Point( 90.0,   90.0));
+        gem.addPoint(new Point(100.0,   50.0));
+        gem.addPoint(new Point(100.0,  100.0));
+        gem.addPoint(new Point( 50.0,  100.0));
+        gem.addPoint(new Point( 90.0,   90.0));
+        gem.addPoint(new Point( 70.0,   80.0));
+        gem.addPoint(new Point( 60.0,   60.0));
+        gem.addPoint(new Point( 50.0,  100.0));
+        
+        gem.addPoint(new Point( 40.0,   60.0));
+        gem.addPoint(new Point( 30.0,   80.0));
+        gem.addPoint(new Point( 10.0,   90.0));
+        gem.addPoint(new Point( 50.0,  100.0));
+        gem.addPoint(new Point(  0.0,  100.0));
+        gem.addPoint(new Point(  0.0,   50.0));
+        gem.addPoint(new Point( 10.0,   90.0));
+        gem.addPoint(new Point( 20.0,   70.0));
+        gem.addPoint(new Point( 40.0,   60.0));
+        gem.addPoint(new Point(  0.0,   50.0)); 
+        
+        shapeLib.add(gem);
+    }
+    
+    private static void addShapeSpiral(ArrayList<Shape> shapeLib) {
+        Shape spiral = new Shape("spiral");
+        
+        spiral.addPoint(new Point(   0.0,    0.0));
+        spiral.addPoint(new Point(  90.0,    0.0));
+        spiral.addPoint(new Point(  90.0,   90.0));
+        spiral.addPoint(new Point(   0.0,   90.0));
+        spiral.addPoint(new Point(   0.0,   20.0));
+        spiral.addPoint(new Point(  70.0,   20.0));
+        spiral.addPoint(new Point(  70.0,   70.0));
+        spiral.addPoint(new Point(  20.0,   70.0));
+        spiral.addPoint(new Point(  20.0,   40.0));
+        spiral.addPoint(new Point(  50.0,   40.0));
+        spiral.addPoint(new Point(  50.0,   50.0));
+        
+        spiral.addPoint(new Point(  30.0,   50.0));
+        spiral.addPoint(new Point(  30.0,   60.0));
+        spiral.addPoint(new Point(  60.0,   60.0));
+        spiral.addPoint(new Point(  60.0,   30.0));
+        spiral.addPoint(new Point(  10.0,   30.0));
+        spiral.addPoint(new Point(  10.0,   80.0));
+        spiral.addPoint(new Point(  80.0,   80.0));
+        spiral.addPoint(new Point(  80.0,   10.0));
+        spiral.addPoint(new Point(   0.0,   10.0));
+        spiral.addPoint(new Point(   0.0,    0.0));
+       
+        shapeLib.add(spiral);
+    }
+    
     /**
      * Writes shapes to their respective shape files, within the shapes folder (under the project folder)
      *

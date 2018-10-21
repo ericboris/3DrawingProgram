@@ -13,7 +13,11 @@ public class Main {
         Drawing drawing7 = new Drawing(shapeLib, new File("Instruct-Gradient-Vert.txt"));
         Drawing drawing8 = new Drawing(shapeLib, new File("Instruct-Gradient-DiagTL.txt"));
         Drawing drawing9 = new Drawing(shapeLib, new File("Instruct-Gradient-DiagTR.txt"));
+        Drawing drawing10 = new Drawing(shapeLib, new File("drawGems.txt"));
+        Drawing drawing11 = new Drawing(shapeLib, new File("drawSpirals.txt"));     
         
+        drawing11.draw();
+        drawing10.draw();
         drawing9.draw();
         drawing8.draw();
         drawing7.draw();

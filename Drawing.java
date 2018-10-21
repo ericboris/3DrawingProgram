@@ -71,18 +71,14 @@ public class Drawing {
                 // create arrays to store the x and y points
                 int[] x = new int[points.size()];
                 int[] y = new int[points.size()];
-
+                
+                // get the amount that point will be shifted by
                 int xShift = getShift(instr.getStartingX(), canvasInstr.getWidth(), 
                         rep, instr.getRepeatOffsetX());
                 int yShift = getShift(instr.getStartingY(), canvasInstr.getHeight(), 
                         rep, instr.getRepeatOffsetY());
-
-                /*                     
-                // move the shape's center in prepartion for scaling
-                // removed xOff and yOff from end of lines for testing getShift()
-                double cX = shape.getCenter().getX() + xShift;
-                double cY = shape.getCenter().getY() + yShift;
-                 */
+                        
+                // get the center point of the shape
                 double cX = shape.getCenter().getX();
                 double cY = shape.getCenter().getY();
 
@@ -94,7 +90,7 @@ public class Drawing {
                     double sp = instr.getScalePercent();
                     double pX = ((p.getX() - cX) * sp / 100 + cX) + xShift;
                     double pY = ((p.getY() - cY) * sp / 100 + cY) + yShift;
-                    
+
                     // store the modified point in the array of points
                     // and update the index
                     x[index] = ((int) Math.round(pX));

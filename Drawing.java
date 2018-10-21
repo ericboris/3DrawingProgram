@@ -80,7 +80,7 @@ public class Drawing {
             Shape shape = shapeLib.get(instr.getShapeName());
             ArrayList<Point> points = shape.getPoints();
             dpg.setColor(instr.getColor());
-            
+
             // draw each shape as many times as it is repeated
             for (int rep = 0; rep < instr.getRepeats(); rep++) {
                 // create arrays to store the x and y points
@@ -111,12 +111,40 @@ public class Drawing {
                     yOff = rep * instr.getRepeatOffsetY();
                 }
                 
+                // move the shape's center in prepartion for scaling
+                int cX = ((int) Math.round(shape.getCenter().getX())) + xStart + xOff;
+                int cY = ((int) Math.round(shape.getCenter().getY())) + yStart + yOff;
+                
                 // iterate over the each point in the shape and its x and y
                 // locations to their respective array at location index               
                 int index = 0;
                 for (Point p : points) {
-                    x[index] = ((int) Math.round(p.getX())) + xStart + xOff;
-                    y[index] = ((int) Math.round(p.getY())) + yStart + yOff;
+                    // get the unscaled location the point's x and y values
+                    int pX = ((int) Math.round(p.getX())) + xStart + xOff;
+                    int pY = ((int) Math.round(p.getY())) + yStart + yOff;
+                    
+                    // get the distance of between the point and the center
+                    // and apply the scaling factor to the distance
+                    double dist = p.distance(shape.getCenter());
+                    int sf = ((int) Math.round(dist * instr.getScalePercent() / 100));
+                    
+                    // apply the scaling factor to the point
+                    // first to x then to y
+                    if (pX < cX) {
+                        pX = pX - sf;
+                    } else {
+                        pX = pX + sf;
+                    }
+                    if(pY < cY) {
+                        pY = pY - sf;
+                    } else {
+                        pY = pY + sf;
+                    }
+                    
+                    // store the modified point in the array of points
+                    // and update the index
+                    x[index] = pX;
+                    y[index] = pY;
                     index++;
                 }
                 
@@ -129,6 +157,5 @@ public class Drawing {
                 }
             }
         }
-        
     }
 }

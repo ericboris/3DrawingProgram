@@ -1,21 +1,4 @@
-/*
- * You must then do the work of drawing.  In some cases that will 
- * involved some transforms on the data, e.g., if the instruction
- * file says to draw the shape at (250, 100), then you must make
- * that happen.  Size is another transform that you'll need to 
- * handle.  Make sure to handle transforms in the proper order,
- * e.g., do you size first, then shift later, or the reverse?
- * 
- * When it comes to drawing the shape, you only need a couple of
- * basic Graphics methods.  You'll need .setColor() to change 
- * to the color you're about to draw with.  You'll also need
- * .drawPolygon() and .fillPolygon().  For extra credit a few
- * other methods will be necessary.
- * 
- * Do not use Graphics2D to do any of this work, regular or 
- * extra credit.  Use simple graphics commands and math to
- * accomplish these tasks.
- */
+
 import java.io.File;
 import java.util.Scanner;
 import java.io.FileNotFoundException;
@@ -67,14 +50,16 @@ public class Drawing {
      *  create a drawing based on canvas instructions and draw instructions
      */
     public void draw() {
-        // create, size, and colore new canvas
+        // create, size, and color new canvas
         DrawingPanel dp = new DrawingPanel();
         dp.setWidth(canvasInstr.getWidth());
         dp.setHeight(canvasInstr.getHeight());
         dp.setBackground(canvasInstr.getColorSolid());
         
+        // create the drawaing panel graphics
         Graphics dpg = dp.getGraphics();
         
+        // perform each of the drawing instructions        
         for (DrawInstruction instr : drawInstrs) {
             // get information about the shape
             Shape shape = shapeLib.get(instr.getShapeName());
@@ -87,6 +72,7 @@ public class Drawing {
                 int[] x = new int[points.size()];
                 int[] y = new int[points.size()];
                 
+                /*
                 // set the global adjustments on all the x pixel values
                 int xStart = 0;
                 int xOff = 0;
@@ -97,7 +83,7 @@ public class Drawing {
                     // set the pixel start for x apoints
                     xStart =  instr.getStartingX();
                     // set the offset amount in pixels for repeated shapes
-                    xOff = rep * instr.getRepeatOffsetX();;
+                    xOff = rep * instr.getRepeatOffsetX();
                 }
                 
                 // repeat the above for y
@@ -110,36 +96,32 @@ public class Drawing {
                     yStart = instr.getStartingY();
                     yOff = rep * instr.getRepeatOffsetY();
                 }
+                */
+               
+                int xStart = getShift(instr.getStartingX(), canvasInstr.getWidth(), rep, instr.getRepeatOffsetX());
+                int yStart = getShift(instr.getStartingY(), canvasInstr.getHeight(), rep, instr.getRepeatOffsetY());
                 
                 // move the shape's center in prepartion for scaling
-                int cX = ((int) Math.round(shape.getCenter().getX())) + xStart + xOff;
-                int cY = ((int) Math.round(shape.getCenter().getY())) + yStart + yOff;
+                // removed xOff and yOff from end of lines for testing getShift()
+                int cX = ((int) Math.round(shape.getCenter().getX())) + xStart;
+                int cY = ((int) Math.round(shape.getCenter().getY())) + yStart;
                 
                 // iterate over the each point in the shape and its x and y
                 // locations to their respective array at location index               
                 int index = 0;
                 for (Point p : points) {
                     // get the unscaled location the point's x and y values
-                    int pX = ((int) Math.round(p.getX())) + xStart + xOff;
-                    int pY = ((int) Math.round(p.getY())) + yStart + yOff;
+                    // removed xOff and yOff from end of lines for testing getShift()
+                    int pX = ((int) Math.round(p.getX())) + xStart;
+                    int pY = ((int) Math.round(p.getY())) + yStart;
                     
-                    // get the distance of between the point and the center
-                    // and apply the scaling factor to the distance
-                    double dist = p.distance(shape.getCenter());
-                    int sf = ((int) Math.round(dist * instr.getScalePercent() / 100));
-                    
-                    // apply the scaling factor to the point
-                    // first to x then to y
-                    if (pX < cX) {
-                        pX = pX - sf;
-                    } else {
-                        pX = pX + sf;
-                    }
-                    if(pY < cY) {
-                        pY = pY - sf;
-                    } else {
-                        pY = pY + sf;
-                    }
+                    /*
+                    // apply scaling
+                    // find the scaling factor and calculate the translation
+                    double sf = instr.getScalePercent() / 100;
+                    pX = ((int) Math.round((pX - cX) * sf + cX));
+                    pY = ((int) Math.round((pY - cY) * sf + cY));
+                    */
                     
                     // store the modified point in the array of points
                     // and update the index
@@ -157,5 +139,21 @@ public class Drawing {
                 }
             }
         }
+    }
+    
+    private int getShift(int initStart, int maxSize, int initRepeat, int initOffset) {
+        // set the global adjustments on all the x pixel values
+        int start = 0;
+        int offset = 0;
+        // randomize the x location or use the provided one
+        if (initStart == Integer.MIN_VALUE) {
+            start = new Random().nextInt(maxSize);
+        } else {
+            // set the pixel start for x apoints
+            start =  initStart;
+            // set the offset amount in pixels for repeated shapes
+            offset = initRepeat * initOffset;
+        }
+        return start + offset;
     }
 }

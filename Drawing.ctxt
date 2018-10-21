@@ -7,4 +7,6 @@ comment1.text=\n\ create\ a\ drawing\ object\n\ \n\ @param\ \ \ file\ \ \ \ \ \ 
 comment2.params=
 comment2.target=void\ draw()
 comment2.text=\n\ \ create\ a\ drawing\ based\ on\ canvas\ instructions\ and\ draw\ instructions\n
-numComments=3
+comment3.params=initStart\ maxSize\ initRepeat\ initOffset
+comment3.target=int\ getShift(int,\ int,\ int,\ int)
+numComments=4

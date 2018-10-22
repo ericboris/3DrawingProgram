@@ -14,9 +14,6 @@ public class ShapeLibrary {
     /** the collection of shapes that shape library stores */
     ArrayList<Shape> shapes;
     
-    /** a collection of the available shapes */
-    public static final ArrayList<Shape> SHAPES = new ArrayList<>();
-    
     /**
      * create the library and try to load shapes from files
      */
@@ -44,11 +41,12 @@ public class ShapeLibrary {
         return shapes.get(index);
     }
     
+    
     /** 
      * return a shape by shape name
      * 
-     * @param   name    the name of shape to return
-     * @return          the shape to be returned
+     * @param   shapeName       the name of shape to return
+     * @return                  the shape to be returned
      */
     public Shape get(String shapeName) {
         Shape shape = null;
@@ -84,5 +82,13 @@ public class ShapeLibrary {
         } catch (ClassNotFoundException c) {
             throw new RuntimeException(c);
         } 
+    }
+    
+    public String toString() {
+        String shps = "";
+        for (Shape shp : shapes) {
+            shps += shp.toString() + "\n";
+        }
+        return shps;
     }
 }

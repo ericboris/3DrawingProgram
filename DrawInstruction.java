@@ -259,5 +259,17 @@ public class DrawInstruction {
         // Repeats must be >= 1
         instruction.repeats      = Math.max(1, instruction.repeats);
     }
-
+    
+    public String toString() {
+        return "Draw Instructions\t:" + 
+                " shape name\t: " + shapeName +
+                " scale percent\t: " + scalePercent +
+                " starting x\t: " + startingX +
+                " starting y\t: " + startingY +
+                " repeats\t: " + repeats +
+                " repeat offset x\t: " + repeatOffsetX +
+                " repeat offset y\t: " + repeatOffsetY +
+                " filled\t: " + filled +
+                " color\t: " + color;
+    }
 }

@@ -12,10 +12,16 @@ import java.util.Random;
  * @version     10/13/18
  */
 public class Drawing {
+    /** the collection of available shapes to draw */
     private ShapeLibrary shapeLib;
+    /** the file to access canvas and drawing instructions from */
     private File file;
+    /** the instructions to use to draw a canvas */
     private CanvasInstruction canvasInstr;
+    /** the instructions to us to draw a picture on the canvas */
     private ArrayList<DrawInstruction> drawInstrs;
+    /** the string all the details of this object */
+    private String toString;
 
     /**
      * create a drawing object
@@ -39,10 +45,12 @@ public class Drawing {
         this.canvasInstr = CanvasInstruction.readFromFile(fileScan);
 
         // get all the draw instructions
-        drawInstrs = new ArrayList<DrawInstruction>();
+        this.drawInstrs = new ArrayList<DrawInstruction>(10);
         while (fileScan.hasNext()) {
             this.drawInstrs.add(DrawInstruction.readFromFile(fileScan));
-        }      
+        }
+        
+        this.toString = "";
     }
 
     /**
@@ -60,20 +68,31 @@ public class Drawing {
 
         // perform each of the drawing instructions        
         for (DrawInstruction instr : drawInstrs) {
+            @SuppressWarnings("unchecked")
             ArrayList<Point> points = shapeLib.get(instr.getShapeName()).getPoints();
             dpg.setColor(instr.getColor());
 
+            this.toString = toString + 
+                            "\n\t\tname:\t" + instr.getShapeName() +
+                            "\n\t\tfilled:\t" + instr.getFilled() + 
+                            "\n\t\tcolor:\t" + instr.getColor() + 
+                            "\n\t\tscale:\t " + instr.getScalePercent() +
+                            "\n\t\trepeat:\t" + instr.getRepeats() + 
+                            "\n\t\tpoints:";
+            
             // draw each shape as many times as it is repeated
-            for (int rep = 0; rep < instr.getRepeats(); rep++) {
+            for (int rep = 0; rep < instr.getRepeats(); rep++) {                
                 // create arrays to store the x and y points
                 int[][] pts = new int[2][points.size()];
 
                 // the amount to translate the x and y points
-                int xTran = getTran(instr.getStartingX(), canvasInstr.getWidth(), 
+                int xTran = getTrans(instr.getStartingX(), canvasInstr.getWidth(), 
                         rep * instr.getRepeatOffsetX());
-                int yTran = getTran(instr.getStartingY(), canvasInstr.getHeight(), 
+                int yTran = getTrans(instr.getStartingY(), canvasInstr.getHeight(), 
                         rep * instr.getRepeatOffsetY());
 
+                this.toString = toString + "\n\t\t\t" + (rep + 1) + ". ";
+                        
                 // iterate over the each point in the shape and its x and y
                 // locations to their respective array at location index               
                 for (int idx = 0; idx < points.size(); idx++) {
@@ -81,13 +100,15 @@ public class Drawing {
                     // scale and translate
                     // and round the result
                     pts[0][idx] = ((int) Math.round(
-                                    points.get(idx).getX() * 
-                                    instr.getScalePercent() / 100) + 
-                                    xTran);
+                            points.get(idx).getX() * 
+                            instr.getScalePercent() / 100) + 
+                        xTran);
                     pts[1][idx] = ((int) Math.round(
-                                    points.get(idx).getY() * 
-                                    instr.getScalePercent() / 100) +
-                                    yTran);
+                            points.get(idx).getY() * 
+                            instr.getScalePercent() / 100) +
+                        yTran);
+                        
+                    this.toString = toString + "(" + pts[0][idx] + ", " + pts[1][idx] + ")";
                 }
 
                 // draw the shape
@@ -97,7 +118,7 @@ public class Drawing {
                 } else {
                     dpg.drawPolygon(pts[0], pts[1], points.size());
                 }
-            }
+            }            
         }
     }
 
@@ -110,7 +131,7 @@ public class Drawing {
      * 
      * @return          the amount to translate a given point by
      */
-    private int getTran(int loc, int max, int offset) {
+    private int getTrans(int loc, int max, int offset) {
         int trans = 0;
         if (loc == Integer.MIN_VALUE) {
             trans = new Random().nextInt(max);
@@ -118,5 +139,11 @@ public class Drawing {
             trans =  loc + offset;
         }
         return trans;
+    }
+    
+    public String toString() {
+        return file.getName() + ":\n\t" +
+               canvasInstr.toString() + 
+               "\n\tDrawing Instructions:" + this.toString;
     }
 }

@@ -1,0 +1,11 @@
+width=600, height=400, red=247, green=188, blue=74
+shape=star, scale=6, x=-2147483648, y=-2147483648, filled=true, red=255, green=255, blue=159, rep=100
+shape=star, scale=12, x=-2147483648, y=-2147483648, filled=true, red=235, green=205, blue=129, rep=50
+shape=star, scale=22, x=-2147483648, y=-2147483648, filled=true, red=255, green=220, blue=103, rep=10
+shape=circle, scale=400, x=100, y=-200, filled=true, red=255, green=115, blue=0
+shape=circle, scale=74, x=130, y=136, filled=true, red=41, green=22, blue=3
+shape=square, scale=910, x=-2, y=252, filled=true, red=16, green=69, blue=88
+shape=gem, scale=210, x=195, y=323, filled=true, red=0, green=0, blue=10
+shape=gem, scale=210, x=195, y=114, filled=true, red=199, green=235, blue=246
+shape=gem, scale=200, x=200, y=118, filled=true, red=131, green=244, blue=243
+

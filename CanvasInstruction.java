@@ -260,5 +260,12 @@ public class CanvasInstruction {
         // Height  must be >= 1
         instruction.height = Math.max(1, instruction.height);
     }
-
+    
+    public String toString() {
+        return "Canvas Instructions:" + 
+                "\n\t\twidth:\t" + width +
+                "\n\t\theight:\t" + height +
+                "\n\t\tcolor:\t" + colorSolid;
+    }
+    
 }

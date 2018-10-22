@@ -1,12 +1,12 @@
 #BlueJ class context
 comment0.target=CanvasView
-comment0.text=\r\n\ Provides\ a\ JPanel\ for\ the\ Canvas\ View\ \r\n\ \r\n\ @author\ \ \ \ \ \ Bill\ Barry\r\n\ @version\ \ \ \ \ 2018-09-09\r\n
+comment0.text=\n\ Provides\ a\ JPanel\ for\ the\ Canvas\ View\ \n\ \n\ @author\ \ \ \ \ \ Bill\ Barry\n\ @version\ \ \ \ \ 2018-09-09\n
 comment1.params=
 comment1.target=CanvasView()
-comment1.text=\r\n\ Constructor;\ sets\ up\ the\ panel\ and\ its\ properties\r\n
+comment1.text=\n\ Constructor;\ sets\ up\ the\ panel\ and\ its\ properties\n
 comment2.params=panel
 comment2.target=void\ attachListeners(javax.swing.JPanel)
-comment2.text=\r\n\ Adds\ listeners\ to\ all\ widgets\ that\ need\ them\r\n\ \r\n\ @param\ \ \ panel\ \ \ the\ JPanel\ on\ which\ the\ widgets\ exist\r\n
+comment2.text=\n\ Adds\ listeners\ to\ all\ widgets\ that\ need\ them\n\ \n\ @param\ \ \ panel\ \ \ the\ JPanel\ on\ which\ the\ widgets\ exist\n
 comment3.params=event
 comment3.target=void\ actionPerformed(java.awt.event.ActionEvent)
 comment4.params=event
